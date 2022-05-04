@@ -62,7 +62,7 @@ while True:
         matchIndex = np.argmin(faceDis)
 
         if faceDis[matchIndex] < 0.50:
-            name = classNames[matchIndex].upper()
+            name = classNames[matchIndex]
             joinNow(name)
         else:
             name = 'Unknown'
@@ -70,7 +70,7 @@ while True:
         y1, x2, y2, x1 = faceLocat
         y1, x2, y2, x1 = y1*2, x2*2, y2*2, x1*2
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(frame, name, (x2, y2), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+        cv2.putText(frame, name, (x2, y2), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 1)
 
     cv2.imshow('Face Recognition', frame)
     if cv2.waitKey(1) == ord("q"):
